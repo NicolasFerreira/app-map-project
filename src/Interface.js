@@ -24,7 +24,7 @@ class Interface extends Component {
       <div>
       <div id="Int" className="Int" style={{left: 0 }}>
 
-      {  places.map((place, i) =>  <p>{places[i].name}</p> ) }
+      {  places.map((place, i) =>  <h2 className="Int-cat">{places[i].name}</h2> ) }
 
       </div>
       <button id="Int-btn" className="Int-btn" onClick={this.displayInt} ></button>

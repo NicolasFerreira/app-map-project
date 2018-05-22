@@ -44,6 +44,7 @@
     color:white;
     left:0;
     top:0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   .Int-btn{
@@ -55,8 +56,9 @@
     width: 50px;
     height: 100px;
     z-index: 2000;
-    border: 2px solid #222;
+    border:none;
     transition:0.5s;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
   .left{
@@ -65,5 +67,9 @@
 
   .display-none{
     display: none;
+  }
+
+  .Int-cat{
+    margin-left: 20px;
   }
 
