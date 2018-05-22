@@ -16,26 +16,6 @@ const stamenTonerAttr =
    };
  }
  
- componentDidMount() {
-   fetch(
-     "https://api.openweathermap.org/data/2.5/forecast?q=Cahors,fr&lang=fr&appid=3b2086e0bc075921948dadd86108f378"
-     )
-   .then(res => res.json())
-   .then(resultat => {
-     if (resultat.city) {
-       this.setState({
-         isLoaded: true,
-         information: resultat
-       });
-     } else {
-       this.setState({
-         isLoaded: false,
-         error: "Ville Introuvable"
-       });
-     }
-     console.log(resultat);
-   });
- }
  
  render() {
    return (
@@ -46,6 +26,7 @@ const stamenTonerAttr =
      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
      />
      </Map>
+     
      </div>
      );
  }

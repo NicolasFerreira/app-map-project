@@ -1,19 +1,19 @@
 [
   {
     "id": "5b04010b04b3efc5571a0dd3",
-    "name": "elit in id",
+    "name": "Education",
     "color": 0,
     "children": [
       {
         "id": "5b04010b9650a5eed0f1acc5",
-        "name": "ad aliqua pariatur",
+        "name": "ecole",
         "icon": "Zanymax",
         "places": [
           {
             "id": "5b04010bac3807835127e642",
             "name": "Lorem ullamco consequat",
-            "lat": 1.15618081,
-            "lon": 48.49481995,
+            "lat": 1.446624,
+            "lon": 44.452747,
             "description": "Magna voluptate culpa ipsum cillum sint."
           },
           {
@@ -78,7 +78,7 @@
   },
   {
     "id": "5b04010be5b0e24c19ac67c8",
-    "name": "dolor commodo aliqua",
+    "name": "Transport",
     "color": 1,
     "children": [
       {
@@ -204,7 +204,7 @@
   },
   {
     "id": "5b04010b49329243537e6b09",
-    "name": "esse ullamco veniam",
+    "name": "Sport",
     "color": 2,
     "children": [
       {
@@ -337,7 +337,7 @@
   },
   {
     "id": "5b04010bc20570752d68fd7c",
-    "name": "id mollit aute",
+    "name": "Écologie",
     "color": 3,
     "children": [
       {
@@ -435,7 +435,7 @@
   },
   {
     "id": "5b04010b72e770ba9caf29fe",
-    "name": "do aliquip culpa",
+    "name": "Santé",
     "color": 4,
     "children": [
       {
@@ -610,7 +610,7 @@
   },
   {
     "id": "5b04010b4b601a52a1689ab2",
-    "name": "enim sit voluptate",
+    "name": "Numérique",
     "color": 5,
     "children": [
       {
@@ -848,7 +848,7 @@
   },
   {
     "id": "5b04010b67e71aa158311437",
-    "name": "consectetur in non",
+    "name": "Commerces et Marché",
     "color": 6,
     "children": [
       {
@@ -988,7 +988,7 @@
   },
   {
     "id": "5b04010bc5121eb88bca9c1e",
-    "name": "tempor velit ullamco",
+    "name": "Sports",
     "color": 7,
     "children": [
       {
@@ -1072,7 +1072,7 @@
   },
   {
     "id": "5b04010b2dc6bfa3374f8d40",
-    "name": "irure tempor reprehenderit",
+    "name": "Propreté",
     "color": 8,
     "children": [
       {

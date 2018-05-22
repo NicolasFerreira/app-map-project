@@ -41,12 +41,17 @@
     background: #222;
     z-index: 2000;
     transition:0.5s;
+    color:white;
+    left:0;
+    top:0;
   }
 
   .Int-btn{
     background: white;
     position: absolute;
     margin-left: 400px;
+    left: 0;
+    top:0;
     width: 50px;
     height: 100px;
     z-index: 2000;
@@ -54,8 +59,11 @@
     transition:0.5s;
   }
 
-  .mg-left{
-    margin-left: 0px;
+  .left{
+    left:-400px!important;
   }
 
+  .display-none{
+    display: none;
+  }
 
