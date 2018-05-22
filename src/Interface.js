@@ -18,9 +18,9 @@ class Interface extends Component {
   render() {
     return (
       <div>
-      <div id="Int" className="Int">
+      <div id="Int" className="Int" style={{width: 400 + 'px'}}>
       </div>
-      <button id="Int-btn" className="Int-btn" onClick={this.displayInt}></button>
+      <button id="Int-btn" className="Int-btn" onClick={this.displayInt} ></button>
       </div>
       );
   }
