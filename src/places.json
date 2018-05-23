@@ -78,31 +78,31 @@
   },
   {
     "id": "5b04010be5b0e24c19ac67c8",
-    "name": "Education",
+    "name": "Éducation",
     "color": "#003399",
     "children": [
       {
         "id": "5b04010b917ebfb2cbb3ea60",
-        "name": "Ecole Maternelle",
+        "name": "École Maternelle",
         "icon": "maternelle.svg",
         "places": [
           {
             "id": "5b04010b92e2cad2b0429a2b",
-            "name": "Ecole Henri Thamier",
+            "name": "École Henri Thamier",
             "lat": 44.4500948,
             "lon": 1.4298012,
             "description": "Publique"
           },
           {
             "id": "5b04010b3509519b687ae4fd",
-            "name": "Ecole Maternelle Publique",
+            "name": "École Maternelle Publique",
             "lat": 44.4508757,
             "lon": 1.4321682,
             "description": "Publique"
           },
           {
             "id": "5b04010b93067bc433319982",
-            "name": "Ecole Maurice Faure",
+            "name": "École Maurice Faure",
             "lat": 44.4558,
             "lon": 1.4375221,
             "description": "Publique"
@@ -111,26 +111,26 @@
       },
       {
         "id": "5b04010b23c066aa36dcb9df",
-        "name": "Ecole Primaire",
+        "name": "École Primaire",
         "icon": "primaire.svg",
         "places": [
           {
             "id": "5b04010beba387bfc313fc04",
-            "name": "Ecole Saint Etienne",
+            "name": "École Saint Etienne",
             "lat": 44.450653,
             "lon": 1.441163,
             "description": "Privé"
           },
           {
             "id": "5b04010bfbd4eeccae9df39d",
-            "name": "Ecole Saint Gabriel",
+            "name": "École Saint Gabriel",
             "lat": 44.4441323,
             "lon": 1.4359115,
             "description": "Privé"
           },
           {
             "id": "5b04010b4a36e8379bfe360c",
-            "name": "Ecole Pierre Segala",
+            "name": "École Pierre Segala",
             "lat": 44.4547594,
             "lon": 1.4349883,
             "description": "Publique"
