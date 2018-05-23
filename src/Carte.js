@@ -31,7 +31,7 @@ listMarkers() {
             var lat = places[i].children[j].places[k].lat;
             var lon = places[i].children[j].places[k].lon;
       
-            listFinal.push(<Marker position={[lat,lon]}></Marker>);
+            listFinal.push(<Marker opacity={this.props.opacity} key={places[i].children[j].places[k].id} position={[lat,lon]}></Marker>);
           }
         }
 

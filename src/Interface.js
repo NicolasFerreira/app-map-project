@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import './App.css';
 import places from './places.json';
 import {  Map, TileLayer, Marker, Popup } from "react-leaflet";
+import Carte from './Carte';
 
 class Interface extends Component {
+  state = {
+    test: "0",
+  }
+
   displayInt(){
     var divInt = document.getElementById('Int');
     var btnInt = document.getElementById('Int-btn');
@@ -31,8 +36,9 @@ class Interface extends Component {
 
   getCoord(lieux){
     for (var i = lieux.length - 1; i >= 0; i--) {
-       console.log('lat :'+lieux[i].lat);
-        console.log('lon :'+lieux[i].lon);
+       console.log(lieux[i]);
+       
+        
     }
   }
 
@@ -41,6 +47,8 @@ class Interface extends Component {
     console.log(places);
     return (
       <div>
+      <Carte opacity="1"/>
+
       <div id="Int" className="Int" style={{left: 0 }}>
 
       {  places.map((place, i) =>  <div key={place + i }><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
