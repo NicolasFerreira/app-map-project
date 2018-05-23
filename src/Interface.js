@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import places from './places.json';
+import {  Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 class Interface extends Component {
   displayInt(){
@@ -17,7 +18,7 @@ class Interface extends Component {
   }
 
   displaySouscat(i){
-      
+
     var list =  document.getElementById('list'+i);
     if ( list.classList.contains("display-none")) {
 
@@ -28,6 +29,13 @@ class Interface extends Component {
   }
   
 
+  getCoord(lieux){
+    for (var i = lieux.length - 1; i >= 0; i--) {
+       console.log('lat :'+lieux[i].lat);
+        console.log('lon :'+lieux[i].lon);
+    }
+  }
+
 
   render() {
     console.log(places);
@@ -35,10 +43,10 @@ class Interface extends Component {
       <div>
       <div id="Int" className="Int" style={{left: 0 }}>
 
-      {  places.map((place, i) =>  <div><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
-        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li>{child.name}</li>)} </ul>
+      {  places.map((place, i) =>  <div key={place + i }><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
+        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li key={child+j}  onClick={() => this.getCoord(child.places)}>{child.name}</li>)} </ul>
         </div> )}
-
+        
       </div>
       <button id="Int-btn" className="Int-btn" onClick={this.displayInt} ></button>
       </div>
