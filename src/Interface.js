@@ -16,16 +16,27 @@ class Interface extends Component {
     }
   }
 
+  displaySouscat(i){
+      
+    var list =  document.getElementById('list'+i);
+    if ( list.classList.contains("display-none")) {
+
+      list.classList.remove('display-none');
+    }else{
+      list.classList.add('display-none');
+    }
+  }
+  
+
 
   render() {
     console.log(places);
-    console.log(places[0].children[0].name);
     return (
       <div>
       <div id="Int" className="Int" style={{left: 0 }}>
 
-      {  places.map((place, i) =>  <div><h2 className="Int-cat">{place.name}</h2>
-        {  place.children.map((child, j) => <p>{child.name}</p>)}
+      {  places.map((place, i) =>  <div><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
+        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li>{child.name}</li>)} </ul>
         </div> )}
 
       </div>

@@ -68,9 +68,15 @@
 
   .display-none{
     display: none;
+    transition: 4s;
   }
+
 
   .Int-cat{
     margin-left: 20px;
+  }
+
+  ul{
+    list-style: none;
   }
 
