@@ -12,10 +12,9 @@ class Carte extends Component {
 
 
 render() {
-
  return (
    <div>
-   {this.props.listMarkers}
+   { this.props.array.map((position,i) => <Marker position={position}></Marker>)}
    </div>
    );
 }

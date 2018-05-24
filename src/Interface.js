@@ -23,8 +23,11 @@ class Interface extends Component {
     this.state = {
       tableau: [],
       mapCenter : [44.4475229, 1.441989],
-      zoomLevel : 15
+      zoomLevel : 15,
+      tab: [],
     }
+
+    this.test();
   }
 
 
@@ -45,49 +48,73 @@ class Interface extends Component {
 
 
   test2(id,lieux){
-    for (var i = tab.length - 1; i >= 0; i--) {
-      if(id === tab[i].id){
-
-        if(tab[i].visible === false){
-         tab[i].visible = true;
+    
+     
 
 
-         for (var j = lieux.length - 1; j >= 0; j--) {
-           // console.log(lieux[j].lat + ' '+ lieux[j].lon)
-           var coords = {lat : lieux[j].lat , lon: lieux[j].lon};
-           points.push(coords);
-         }
-         
-         
-         // console.log(tab);
-       }else{
-        tab[i].visible = false;
+  for (var i = 0; i < tab.length; i++) {    
+    if(id === tab[i].id && tab[i].visible === false ){
+      tab[i].visible = true;
 
-
-
-        for (var j = lieux.length - 1; j >= 0; j--) {
-           // console.log(lieux[j].lat + ' '+ lieux[j].lon)
-           var coords = {lat : lieux[j].lat , lon: lieux[j].lon};
-           points.pop(coords);
-         }
-        
-      }
+    }else if(id === tab[i].id && tab[i].visible === true){
+      tab[i].visible = false;
     }
-
+    // console.log(tab[i])
+  }
 
  
 
-  }
+console.log(tab)
+this.setState({ tableau: [] })
+points = [];
+// this.setState({ tableau: [] })
 
-this.state.tableau = points ;
-
-  this.listMarkers();
+for (var i = 0; i < tab.length; i++) {
   
-console.log(points)
+  if(tab[i].visible === true ){
 
-  // console.log(tab);
+          
+         for (var j = 0; j < lieux.length; j++) {
+           
+            
+
+            for (var k = 0; k < lieux[j].children.length; k++) {
+
+              if(lieux[j].children[k].id === tab[i].id ){
+                
+
+
+                for (var l = 0; l < lieux[j].children[k].places.length; l++) {
+                  // console.log(lieux[j].children[k].places[l].name)
+
+                  var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
+                  points.push(coords);
+                }
+              }
+              
+
+
+
+            }
+           
+          
+
+           // var coords = [lieux[j].lat ,lieux[j].lon];
+           // points.push(coords);
+
+         }
+  }
+}
+
+
+console.log(points)
+ 
+this.setState({ tableau: points })
+
 
 }
+
+
 
 
 
@@ -116,9 +143,10 @@ displaySouscat(i){
 }
 
 
-
  listMarkers() {
   const listFinal = [];
+
+
   // console.log(this.state.tableau);
   for (var i=0; i < this.state.tableau.length; i++) {
 
@@ -139,9 +167,15 @@ displaySouscat(i){
 }
 
 
+
+
+
+
 render() {
-  {this.test()}
+
+
     // console.log(places);
+
     return (
       <div>
       
@@ -149,7 +183,7 @@ render() {
       <div id="Int" className="Int" style={{left: 0 }}>
 
       {  places.map((place, i) =>  <div key={place + i }><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
-        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li key={child+j}  id={child.id} onClick={() => this.test2(child.id,child.places)}>{child.name}</li>)} </ul>
+        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li key={child+j}  id={child.id} onClick={() => this.test2(child.id,places)}>{child.name}</li>)} </ul>
         </div> )}
 
       </div>
@@ -164,8 +198,7 @@ render() {
       />
       
       
-      {this.listMarkers()}
-
+     <Carte array={this.state.tableau}/>
       </Map>
 
       </div>
@@ -176,3 +209,5 @@ render() {
 
 export default Interface;
 
+
+//
