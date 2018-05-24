@@ -9,6 +9,7 @@ import Carte from './Carte';
 
 var tab = [];
 var points = [];
+var names = [];
 
 const stamenTonerTiles =
 "http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png";
@@ -22,6 +23,7 @@ class Interface extends Component {
     super(props);    
     this.state = {
       tableau: [],
+      names: [],
       mapCenter : [44.4475229, 1.441989],
       zoomLevel : 15,
       tab: [],
@@ -66,7 +68,9 @@ class Interface extends Component {
 
 console.log(tab)
 this.setState({ tableau: [] })
+this.setState({ names: [] })
 points = [];
+names = [];
 // this.setState({ tableau: [] })
 
 for (var i = 0; i < tab.length; i++) {
@@ -85,9 +89,11 @@ for (var i = 0; i < tab.length; i++) {
 
 
                 for (var l = 0; l < lieux[j].children[k].places.length; l++) {
-                  // console.log(lieux[j].children[k].places[l].name)
+                  // console.log(lieux[j].children[k].places[l])
 
                   var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
+                  var name = lieux[j].children[k].places[l].name;
+                  names.push(name);
                   points.push(coords);
                 }
               }
@@ -107,9 +113,14 @@ for (var i = 0; i < tab.length; i++) {
 }
 
 
-console.log(points)
+
  
 this.setState({ tableau: points })
+this.setState({ names: names })
+
+console.log(this.state.tableau)
+console.log(this.state.names)
+
 
 
 }
@@ -198,7 +209,7 @@ render() {
       />
       
       
-     <Carte array={this.state.tableau}/>
+     <Carte array={this.state.tableau} names={this.state.names}/>
       </Map>
 
       </div>
@@ -210,4 +221,4 @@ render() {
 export default Interface;
 
 
-//
+//<Carte array={this.state.tableau}/>
