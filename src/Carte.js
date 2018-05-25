@@ -28,38 +28,38 @@ class Carte extends Component {
 
 		if(icon === 'Parkings'){
 			var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-color.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/parking.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}else if(icon === 'Arrêts de bus'){
       var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-grey.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/bus.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}else if(icon === 'École Maternelle'){
       var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-grey.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/maternelle.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}else if(icon === 'École Primaire'){
       var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-grey.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/primaire.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}else if(icon === 'Récup Verre'){
       var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-grey.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/verre.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}else{
 			var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-sat.png'),
-					iconSize: new L.Point(60, 75),
+					iconUrl: require('./img/decheterie.png'),
+					iconSize: new L.Point(60, 60),
 					className: 'leaflet-div-icon'
 				});
 		}

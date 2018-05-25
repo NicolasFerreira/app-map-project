@@ -156,7 +156,7 @@ render() {
   />
 
  
-  
+  <Carte array={this.state.tableau} names={this.state.names}/>
   </Map>
 
   </div>
@@ -171,7 +171,7 @@ render() {
 }
 }
 export default Interface;
-// <Carte array={this.state.tableau} names={this.state.names}/>
+// 
 //http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 //http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png
 //https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
