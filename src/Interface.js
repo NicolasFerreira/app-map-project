@@ -7,9 +7,9 @@ import {  Map, TileLayer, Marker, Popup } from "react-leaflet";
 import Carte from './Carte';
 
 
-var tab = [];
-var points = [];
-var names = [];
+var tab = [];//tableau pour déterminer la visibilité
+var points = [];//les coordonnées
+var names = [];//les noms des lieux
 
 const stamenTonerTiles =
 "http://stamen-tiles-{s}.a.ssl.fastly.net/toner-background/{z}/{x}/{y}.png";
@@ -29,12 +29,10 @@ class Interface extends Component {
       tab: [],
     }
 
-    this.test();
+    this.Init();
   }
 
-
-
-  test(){
+  Init(){
     for (var i=0; i < places.length; i++) {
 
       for (var j = places[i].children.length - 1; j >= 0; j--) {
@@ -49,85 +47,49 @@ class Interface extends Component {
   
 
 
-  test2(id,lieux){
-    
-     
+  getCoord(id,lieux){
 
+    for (var i = 0; i < tab.length; i++) {    
+      if(id === tab[i].id && tab[i].visible === false ){
+        tab[i].visible = true;
 
-  for (var i = 0; i < tab.length; i++) {    
-    if(id === tab[i].id && tab[i].visible === false ){
-      tab[i].visible = true;
+      }else if(id === tab[i].id && tab[i].visible === true){
+        tab[i].visible = false;
+      }
+    } 
 
-    }else if(id === tab[i].id && tab[i].visible === true){
-      tab[i].visible = false;
-    }
-    // console.log(tab[i])
-  }
+    console.log(tab)
+    this.setState({ tableau: [] })
+    this.setState({ names: [] })
+    points = [];
+    names = [];
 
- 
+    for (var i = 0; i < tab.length; i++) {
+      if(tab[i].visible === true ){
 
-console.log(tab)
-this.setState({ tableau: [] })
-this.setState({ names: [] })
-points = [];
-names = [];
-// this.setState({ tableau: [] })
+       for (var j = 0; j < lieux.length; j++) {
 
-for (var i = 0; i < tab.length; i++) {
-  
-  if(tab[i].visible === true ){
+        for (var k = 0; k < lieux[j].children.length; k++) {
+          if(lieux[j].children[k].id === tab[i].id ){
 
-          
-         for (var j = 0; j < lieux.length; j++) {
-           
-            
-
-            for (var k = 0; k < lieux[j].children.length; k++) {
-
-              if(lieux[j].children[k].id === tab[i].id ){
-                
-
-
-                for (var l = 0; l < lieux[j].children[k].places.length; l++) {
-                  // console.log(lieux[j].children[k].places[l])
-
-                  var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
-                  var name = lieux[j].children[k].places[l].name;
-                  names.push(name);
-                  points.push(coords);
-                }
-              }
-              
-
-
-
+            for (var l = 0; l < lieux[j].children[k].places.length; l++) {
+              var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
+              var name = lieux[j].children[k].places[l].name;
+              names.push(name);
+              points.push(coords);
             }
-           
-          
-
-           // var coords = [lieux[j].lat ,lieux[j].lon];
-           // points.push(coords);
-
-         }
+          }
+        }
+      }
+    }
   }
+
+  this.setState({ tableau: points })
+  this.setState({ names: names })
+
+  console.log(this.state.tableau)
+  console.log(this.state.names)
 }
-
-
-
- 
-this.setState({ tableau: points })
-this.setState({ names: names })
-
-console.log(this.state.tableau)
-console.log(this.state.names)
-
-
-
-}
-
-
-
-
 
 displayInt(){
   var divInt = document.getElementById('Int');
@@ -153,72 +115,33 @@ displaySouscat(i){
   }
 }
 
-
- listMarkers() {
-  const listFinal = [];
-
-
-  // console.log(this.state.tableau);
-  for (var i=0; i < this.state.tableau.length; i++) {
-
-
-    // console.log(this.state.tableau[i]);
-
-    var lat = this.state.tableau[i].lat;
-    var lon = this.state.tableau[i].lon;
-
-    listFinal.push(<Marker position={[lat, lon]}></Marker>);
-
-
-  }
-
-
-  // console.log(listFinal)
-  return listFinal;
-}
-
-
-
-
-
-
 render() {
+ return (
+  <div>
+  <div id="Int" className="Int" style={{left: 0 }}>
 
+  {  places.map((place, i) =>  
+    <div key={place + i }>
+    <h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
+    <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => 
+      <li key={child+j}  id={child.id} onClick={() => this.getCoord(child.id,places)}>{child.name}</li>)} 
+    </ul>
+    </div> )}
+  </div>
+  <button id="Int-btn" className="Int-btn" onClick={this.displayInt} ></button>
 
-    // console.log(places);
+  <div id="map-position">
+  <Map center={this.state.mapCenter} zoom={this.state.zoomLevel}>
+  <TileLayer
+  attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
+  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  />
 
-    return (
-      <div>
-      
-
-      <div id="Int" className="Int" style={{left: 0 }}>
-
-      {  places.map((place, i) =>  <div key={place + i }><h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
-        <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => <li key={child+j}  id={child.id} onClick={() => this.test2(child.id,places)}>{child.name}</li>)} </ul>
-        </div> )}
-
-      </div>
-      <button id="Int-btn" className="Int-btn" onClick={this.displayInt} ></button>
-
-
-      <div id="map-position">
-      <Map center={this.state.mapCenter} zoom={this.state.zoomLevel}>
-      <TileLayer
-      attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      />
-      
-      
-     <Carte array={this.state.tableau} names={this.state.names}/>
-      </Map>
-
-      </div>
-      </div>
-      );
-  }
+  <Carte array={this.state.tableau} names={this.state.names}/>
+  </Map>
+  </div>
+  </div>
+  );
 }
-
+}
 export default Interface;
-
-
-//<Carte array={this.state.tableau}/>

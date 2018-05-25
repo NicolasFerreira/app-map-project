@@ -8,9 +8,6 @@ import {  Map, TileLayer, Marker, Popup  } from "react-leaflet";
 
 class Carte extends Component {
 
-
-
-
 	render() {
 		return (
 			<div>
