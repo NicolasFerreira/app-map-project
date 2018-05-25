@@ -113,3 +113,9 @@
   .material-icons.eye{
     margin-right: 15px;
   }
+
+  .leaflet-control-zoom{
+    position: absolute;
+    top: 0;
+    left: 92vw;
+  }
