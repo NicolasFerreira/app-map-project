@@ -27,6 +27,7 @@ class Interface extends Component {
       mapCenter : [44.4475229, 1.441989],
       zoomLevel : 15,
       tab: [],
+      url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     }
 
     this.Init();
@@ -109,6 +110,17 @@ displaySouscat(i){
   }
 }
 
+getTile(couleur){
+  if(couleur === "color"){
+    this.setState({ url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' })
+  }else if(couleur === "grey"){
+     this.setState({ url: 'http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png' })
+  }else if(couleur === "sat"){
+     this.setState({ url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}' })
+  }
+
+}
+
 render() {
  return (
   <div>
@@ -129,17 +141,25 @@ render() {
   <Map center={this.state.mapCenter} zoom={this.state.zoomLevel}>
   <TileLayer
   attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
-  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  url={this.state.url}
   />
 
   <Carte array={this.state.tableau} names={this.state.names}/>
   
   </Map>
+
+  </div>
+
+  <div className='App-tiles'>
+    <div className='App-tiles-color'  onClick={() => this.getTile('color')} ></div>
+    <div className='App-tiles-grey' onClick={() => this.getTile('grey')}></div>
+    <div className='App-tiles-sat' onClick={() => this.getTile('sat')}></div>
   </div>
   </div>
   );
 }
 }
 export default Interface;
-
-//
+//http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+//http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png
+//https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
