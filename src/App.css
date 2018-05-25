@@ -131,3 +131,35 @@ h2 i {
   margin-right: 15px;
 }
 
+.App-tiles{
+  position: absolute;
+  bottom: 30px;
+  right:50px;
+  z-index:5000;
+  display: flex;
+  flex-direction: row;
+}
+
+.App-tiles div{
+  height:60px;
+  width: 60px;
+  margin:5px;
+  
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
+}
+
+.App-tiles-color{
+  background-image: url('./img/tile-color.png');
+  background-size:contain;
+}
+
+.App-tiles-grey{
+  background-image: url('./img/tile-grey.png');
+  background-size:contain;
+}
+
+.App-tiles-sat{
+  background-image: url('./img/tile-sat.png');
+  background-size:contain;
+}
