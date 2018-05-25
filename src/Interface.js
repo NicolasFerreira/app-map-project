@@ -72,7 +72,7 @@ class Interface extends Component {
           if(lieux[j].children[k].id === tab[i].id ){
 
             for (var l = 0; l < lieux[j].children[k].places.length; l++) {
-              var datas = lieux[j].children[k].places[l];
+              var datas = {lieu: lieux[j].children[k].places[l], icon: lieux[j].children[k].name};
               points.push(datas);
             }
           }
@@ -82,6 +82,7 @@ class Interface extends Component {
   }
 
   this.setState({ tableau: points })
+  console.log(this.state.tableau)
 }
 
 displayInt(){
@@ -154,7 +155,7 @@ render() {
   url={this.state.url}
   />
 
-  <Carte array={this.state.tableau} names={this.state.names}/>
+ 
   
   </Map>
 
@@ -170,6 +171,7 @@ render() {
 }
 }
 export default Interface;
+// <Carte array={this.state.tableau} names={this.state.names}/>
 //http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 //http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png
 //https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
