@@ -42,7 +42,6 @@ class Interface extends Component {
 
       }
     }
-    // console.log(tab);
   }
   
 
@@ -50,15 +49,20 @@ class Interface extends Component {
   getCoord(id,lieux){
 
     for (var i = 0; i < tab.length; i++) {    
+      var eye = document.getElementById("img#"+id);
       if(id === tab[i].id && tab[i].visible === false ){
         tab[i].visible = true;
+        // eye.classList.remove('display-none');
+        eye.innerHTML = 'visibility';
 
       }else if(id === tab[i].id && tab[i].visible === true){
         tab[i].visible = false;
+        // eye.classList.add('display-none');
+        eye.innerHTML = 'visibility_off';
+
       }
     } 
 
-    console.log(tab)
     this.setState({ tableau: [] })
     this.setState({ names: [] })
     points = [];
@@ -73,7 +77,7 @@ class Interface extends Component {
           if(lieux[j].children[k].id === tab[i].id ){
 
             for (var l = 0; l < lieux[j].children[k].places.length; l++) {
-              var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
+              var coords = [lieux[j].children[k].places[l].lat, lieux[j].children[k].places[l].lon];
               var name = lieux[j].children[k].places[l].name;
               names.push(name);
               points.push(coords);
@@ -87,8 +91,8 @@ class Interface extends Component {
   this.setState({ tableau: points })
   this.setState({ names: names })
 
-  console.log(this.state.tableau)
-  console.log(this.state.names)
+  // console.log(this.state.tableau)
+  // console.log(this.state.names)
 }
 
 displayInt(){
@@ -105,10 +109,8 @@ displayInt(){
 }
 
 displaySouscat(i){
-
   var list =  document.getElementById('list'+i);
   if ( list.classList.contains("display-none")) {
-
     list.classList.remove('display-none');
   }else{
     list.classList.add('display-none');
@@ -124,7 +126,8 @@ render() {
     <div key={place + i }>
     <h2 className="Int-cat" id={i} onClick={() => this.displaySouscat(i)}>{place.name}</h2>
     <ul id={'list'+i} className="display-none"> {  place.children.map((child, j) => 
-      <li key={child+j}  id={child.id} onClick={() => this.getCoord(child.id,places)}>{child.name}</li>)} 
+      <li key={child+j}  id={child.id} onClick={() => this.getCoord(child.id,places)}><i id={"img#"+child.id} className="material-icons eye">
+      visibility_off</i>{child.name}</li>)} 
     </ul>
     </div> )}
   </div>

@@ -93,6 +93,8 @@
   }
 
   li{
+    display: flex;
+    align-items: center;
     margin:15px 0;
     cursor: pointer;
   }
@@ -101,3 +103,6 @@
     cursor: pointer;
   }
 
+  .material-icons.eye{
+    margin-right: 15px;
+  }
