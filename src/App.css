@@ -163,3 +163,7 @@ h2 i {
   background-image: url('./img/tile-sat.png');
   background-size:contain;
 }
+
+.leaflet-div-icon{
+  border-radius:100px;
+}
