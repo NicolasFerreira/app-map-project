@@ -1,117 +1,133 @@
-/*.App {
-  text-align: center;
-  }*/
+.App {
+  font-family: 'Raleway', sans-serif;
+}
 
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
-  }
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
 
-  .App-header {
-    background-color: #222;
-    height: 150px;
-    padding: 20px;
-    color: white;
-  }
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
 
-  .App-title {
-    font-size: 1.5em;
-  }
+.App-title {
+  font-size: 1.5em;
+}
 
-  .App-intro {
-    font-size: large;
-  }
+.App-intro {
+  font-size: large;
+}
 
-  @keyframes App-logo-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-  }
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
-  .leaflet-container{
-    width:100vw;
-    height: 100vh;
-  }
+.leaflet-container{
+  width:100vw;
+  height: 100vh;
+}
 
-  /*::::::::::::::::::::::::::::::::::::::INTERFACE::::::::::::::::::::::::::::::::::::*/
+/*::::::::::::::::::::::::::::::::::::::INTERFACE::::::::::::::::::::::::::::::::::::*/
 
-  .Int{
-    position: absolute;
-    height: 100%;
-    width: 400px;
-    background: #222;
-    z-index: 2000;
-    transition:0.5s;
-    color:white;
-    left:0;
-    top:0;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    
-  }
+.Int{
+  position: absolute;
+  height: 100%;
+  width: 350px;
+  background: #222;
+  z-index: 2000;
+  transition:0.5s;
+  color: #61dafb;
+  left:0;
+  top:0;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 
-  .Int-btn{
-    background: white;
-    position: absolute;
-    margin-left: 400px;
-    left: 0;
-    top:0;
-    width: 50px;
-    height: 100px;
-    z-index: 2000;
-    border:none;
-    transition:0.5s;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  }
-  .Int-btn2{
-    background: white;
-    position: absolute;
-    margin-left: 600px;
-    left: 0;
-    top:0;
-    width: 50px;
-    height: 100px;
-    z-index: 2000;
-    border:none;
-    transition:0.5s;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  }
+}
 
-  .left{
-    left:-400px!important;
-  }
+.Int-header{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100px;
+  background: #61dafb;
+  margin-bottom: 50px;
+}
 
-  .display-none{
-    visibility: hidden;
-    height: 0px;
-    -webkit-transition:  height 0.5s, visibility 1s; /* For Safari 3.1 to 6.0 */
-    transition:  height 0.5s, visibility 1s;
-  }
+.Int-btn{
+  border-radius: 0 4px 4px  0;
+  cursor: pointer;
+  color: #61dafb;
+  background: #222;
+  position: absolute;
+  margin-left: 350px;
+  left: 0;
+  top:0;
+  width: 50px;
+  height: 100px;
+  z-index: 2000;
+  border:none;
+  transition:0.5s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.left{
+  left:-350px!important;
+}
+
+.display-none{
+  visibility: hidden;
+  height: 0px;
+  -webkit-transition:  height 0.5s, visibility 1s; /* For Safari 3.1 to 6.0 */
+  transition:  height 0.5s, visibility 1s;
+}
 
 
-  .Int-cat{
-    margin-left: 20px;
-  }
+.Int-cat{
+  margin-left: 20px;
+}
 
-  ul{
-    visibility: visible;
-    list-style: none;
-    height: 100px;
-    overflow: hidden;
-    -webkit-transition:  height 0.5s, visibility 1s; /* For Safari 3.1 to 6.0 */
-    transition:  height 0.5s, visibility 1s;
-  }
-  
+ul{
+  list-style: none;
+  height: 100px;
+  overflow: hidden;
+  -webkit-transition:  height 0.5s, visibility 1s; /* For Safari 3.1 to 6.0 */
+  transition:  height 0.5s, visibility 1s;
+}
 
-  li{
-    display: flex;
-    align-items: center;
-    margin:15px 0;
-    cursor: pointer;
-  }
 
-  h2{
-    cursor: pointer;
-  }
+li{
+  display: flex;
+  align-items: center;
+  margin:15px 0;
+  cursor: pointer;
+  padding-left: 50px;
+}
 
-  .material-icons.eye{
-    margin-right: 15px;
-  }
+h2{
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  margin: 0;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+h2 i {
+  margin-right: 10px;
+}
+
+.Int-header h2{
+  color: #222;
+  font-weight: 700;
+  font-size: 28px;
+  margin-left: 20px;
+}
+
+.material-icons.eye{
+  margin-right: 15px;
+}
+
