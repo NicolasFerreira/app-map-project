@@ -52,12 +52,10 @@ class Interface extends Component {
       var eye = document.getElementById("img#"+id);
       if(id === tab[i].id && tab[i].visible === false ){
         tab[i].visible = true;
-        // eye.classList.remove('display-none');
         eye.innerHTML = 'visibility';
 
       }else if(id === tab[i].id && tab[i].visible === true){
         tab[i].visible = false;
-        // eye.classList.add('display-none');
         eye.innerHTML = 'visibility_off';
 
       }
@@ -104,8 +102,10 @@ displaySouscat(i){
   var list =  document.getElementById('list'+i);
   if ( list.classList.contains("display-none")) {
     list.classList.remove('display-none');
+    
   }else{
     list.classList.add('display-none');
+
   }
 }
 
