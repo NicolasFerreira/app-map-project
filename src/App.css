@@ -165,5 +165,6 @@ h2 i {
 }
 
 .leaflet-div-icon{
-  border-radius:100px;
+  border:none;
+  background:none;
 }

@@ -6,62 +6,67 @@ import L from 'leaflet';
 
 
 var iconPerson = new L.Icon({
-					iconUrl: require('./img/tile-color.png'),
-					iconSize: new L.Point(60, 75),
-					className: 'leaflet-div-icon'
-				});
+	iconUrl: require('./img/tile-color.png'),
+	iconSize: new L.Point(60, 75),
+	className: 'leaflet-div-icon'
+});
 
 
 
 class Carte extends Component {
 
 	constructor(props) {
-    super(props);    
-    this.state = {
-      icon: iconPerson,
-    }
+		super(props);    
+		this.state = {
+			icon: iconPerson,
+		}
 
-    
-  }
+		
+	}
 
 	getIcons(icon){
 
 		if(icon === 'Parkings'){
 			var iconPerson = new L.Icon({
-					iconUrl: require('./img/parking.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+				iconUrl: require('./img/parking.png'),
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}else if(icon === 'Arrêts de bus'){
-      var iconPerson = new L.Icon({
-					iconUrl: require('./img/bus.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+			var iconPerson = new L.Icon({
+				iconUrl: require('./img/bus.png'),
+				iconAnchor: null,
+				popupAnchor: null,
+				shadowUrl: null,
+				shadowSize: null,
+				shadowAnchor: null,
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}else if(icon === 'École Maternelle'){
-      var iconPerson = new L.Icon({
-					iconUrl: require('./img/maternelle.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+			var iconPerson = new L.Icon({
+				iconUrl: require('./img/maternelle.png'),
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}else if(icon === 'École Primaire'){
-      var iconPerson = new L.Icon({
-					iconUrl: require('./img/primaire.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+			var iconPerson = new L.Icon({
+				iconUrl: require('./img/primaire.png'),
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}else if(icon === 'Récup Verre'){
-      var iconPerson = new L.Icon({
-					iconUrl: require('./img/verre.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+			var iconPerson = new L.Icon({
+				iconUrl: require('./img/verre.png'),
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}else{
 			var iconPerson = new L.Icon({
-					iconUrl: require('./img/decheterie.png'),
-					iconSize: new L.Point(60, 60),
-					className: 'leaflet-div-icon'
-				});
+				iconUrl: require('./img/decheterie.png'),
+				iconSize: new L.Point(60, 60),
+				className: 'leaflet-div-icon'
+			});
 		}
 		
 
@@ -75,7 +80,7 @@ class Carte extends Component {
 			<div>
 			{ this.props.array.map((data,i) => 
 
-				 
+				
 				<div>
 				
 				<Marker icon={this.getIcons(data.icon)} position={[data.lieu.lat,data.lieu.lon]}>
