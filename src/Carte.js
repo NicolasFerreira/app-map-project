@@ -11,10 +11,11 @@ class Carte extends Component {
 	render() {
 		return (
 			<div>
-			{ this.props.array.map((position,i) => <Marker position={position}>
+			{ this.props.array.map((data,i) => <Marker position={[data.lat,data.lon]}>
 				<Popup>
 				<span>
-				{this.props.names[i] }
+				<h3>{data.name }</h3>
+				<p>{data.description}</p>
 				</span>
 				</Popup>
 

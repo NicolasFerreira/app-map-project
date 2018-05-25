@@ -60,9 +60,7 @@ class Interface extends Component {
 
     console.log(tab)
     this.setState({ tableau: [] })
-    this.setState({ names: [] })
     points = [];
-    names = [];
 
     for (var i = 0; i < tab.length; i++) {
       if(tab[i].visible === true ){
@@ -73,10 +71,8 @@ class Interface extends Component {
           if(lieux[j].children[k].id === tab[i].id ){
 
             for (var l = 0; l < lieux[j].children[k].places.length; l++) {
-              var coords = [lieux[j].children[k].places[l].lat ,lieux[j].children[k].places[l].lon];
-              var name = lieux[j].children[k].places[l].name;
-              names.push(name);
-              points.push(coords);
+              var datas = lieux[j].children[k].places[l];
+              points.push(datas);
             }
           }
         }
@@ -85,10 +81,7 @@ class Interface extends Component {
   }
 
   this.setState({ tableau: points })
-  this.setState({ names: names })
-
   console.log(this.state.tableau)
-  console.log(this.state.names)
 }
 
 displayInt(){
@@ -137,7 +130,8 @@ render() {
   url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
   />
 
-  <Carte array={this.state.tableau} names={this.state.names}/>
+<Carte array={this.state.tableau} names={this.state.names}/>
+  
   </Map>
   </div>
   </div>
@@ -145,3 +139,5 @@ render() {
 }
 }
 export default Interface;
+
+//
